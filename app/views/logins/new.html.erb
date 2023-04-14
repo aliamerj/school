@@ -1,0 +1,22 @@
+<h1>Log In</h1>
+<%= form_with model: @user, url: logins_path do |form| %>
+
+  <div>
+    <%= form.label :email %><br>
+    <%= form.email_field :email %>
+  </div>
+
+
+
+  <div>
+    <%= form.label :password %><br>
+    <%= form.password_field :password %><br>
+  </div>
+
+
+  <div>
+    <%= form.submit :"Log in"  %>
+  </div>
+<% end %>
+<%= link_to "create new account", new_registration_path %>
+
