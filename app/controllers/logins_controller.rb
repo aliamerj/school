@@ -6,7 +6,7 @@ class LoginsController < ApplicationController
   end
 
   def create
-  @user = User.find_by(user_params)
+  @user = User.authenticate(user_params[:email], user_params[:password])
   if @user
     log_in(@user)
     redirect_to dashboards_path

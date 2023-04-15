@@ -2,7 +2,7 @@
 class RegistrationsController < ApplicationController
 
   def new
-    redirect_to dashboards_path if logged_in
+    redirect_to dashboards_path if current_user
     @user = User.new
   end
 
@@ -19,7 +19,7 @@ class RegistrationsController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :age)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :age)
 
   end
 
